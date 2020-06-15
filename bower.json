@@ -1,35 +1,20 @@
 {
-  "name": "purescript-grain-router",
-  "license": "MIT",
-  "homepage": "https://github.com/purescript-grain/purescript-grain-router",
-  "authors": [
-    "Shinya Takahashi <s.takahashi313@gmail.com>"
-  ],
-  "description": "Router for purescript-grain",
-  "keywords": [
-    "purescript",
-    "virtual-dom",
-    "ui"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/purescript-grain/purescript-grain-router"
-  },
-  "moduleType": [
-    "node"
-  ],
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "output"
-  ],
-  "dependencies": {
-    "purescript-grain": "https://github.com/purescript-grain/purescript-grain.git#master",
-    "purescript-profunctor": "^4.1.0"
-  },
-  "devDependencies": {
-    "purescript-test-unit": "^15.0.0",
-    "purescript-generics-rep": "^6.1.1"
-  }
+    "name": "purescript-grain-router",
+    "license": [
+        "MIT"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/purescript-grain/purescript-grain-router"
+    },
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "output"
+    ],
+    "dependencies": {
+        "purescript-grain": "https://github.com/purescript-grain/purescript-grain.git#v0.1.0",
+        "purescript-profunctor": "^4.1.0"
+    }
 }
