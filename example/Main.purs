@@ -5,7 +5,7 @@ import Prelude
 import Control.Alt ((<|>))
 import Data.Maybe (Maybe(..), fromMaybe)
 import Effect (Effect)
-import Grain (class Grain, VNode, fromConstructor, grain, mountUI, useGlobalValue)
+import Grain (class GlobalGrain, GProxy(..), VNode, fromConstructor, mountUI, useValue)
 import Grain.Markup as H
 import Grain.Router (class Router, initialRouter, link, useRouter)
 import Grain.Router.Parser (end, int, lit, match, param)
@@ -30,7 +30,7 @@ instance routerRoute :: Router Route where
       <|>
       User <$> (lit "users" *> int) <* end
 
-instance grainRoute :: Grain Route where
+instance globalGrainRoute :: GlobalGrain Route where
   initialState _ = initialRouter
   typeRefOf _ = fromConstructor NotFound
 
@@ -44,8 +44,8 @@ main = do
 
 view :: VNode
 view = H.component do
-  route <- useGlobalValue (grain :: _ Route)
-  startRouter <- useRouter (grain :: _ Route)
+  route <- useValue (GProxy :: _ Route)
+  startRouter <- useRouter (GProxy :: _ Route)
   pure $ H.div
     # H.didCreate (const startRouter)
     # H.kids

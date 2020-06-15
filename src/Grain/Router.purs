@@ -15,7 +15,7 @@ import Prelude
 import Data.Maybe (Maybe(..))
 import Effect (Effect)
 import Foreign (Foreign, unsafeToForeign)
-import Grain (class Grain, GProxy, Render, VNode, useGlobalUpdater)
+import Grain (class GlobalGrain, GProxy, Render, VNode, useUpdater)
 import Grain.Markup as H
 import Web.Event.Event (EventType, preventDefault)
 import Web.Event.EventTarget (addEventListener, eventListener)
@@ -30,12 +30,12 @@ class Router a where
 
 useRouter
   :: forall a
-   . Grain a
+   . GlobalGrain a
   => Router a
   => GProxy a
   -> Render (Effect Unit)
 useRouter proxy = do
-  updateRoute <- useGlobalUpdater proxy
+  updateRoute <- useUpdater proxy
   pure do
     listener <- eventListener $ const do
       route <- parse <$> currentPath
