@@ -5,7 +5,7 @@ import Prelude
 import Control.Alt ((<|>))
 import Data.Maybe (Maybe(..), fromMaybe)
 import Effect (Effect)
-import Grain (class GlobalGrain, GProxy(..), VNode, fromConstructor, mountUI, useValue)
+import Grain (class GlobalGrain, GProxy(..), VNode, fromConstructor, mount, useValue)
 import Grain.Markup as H
 import Grain.Router (class Router, initialRouter, link, useRouter)
 import Grain.Router.Parser (end, int, lit, match, param)
@@ -40,7 +40,7 @@ main = do
   case maybeEl of
     Nothing -> pure unit
     Just el ->
-      void $ mountUI view $ toNode el
+      mount view $ toNode el
 
 view :: VNode
 view = H.component do
