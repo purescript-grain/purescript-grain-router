@@ -7,7 +7,6 @@
     "clean": "rm -rf output",
     "test": "spago -x test.dhall test -u '--strict --stash --censor-lib --is-lib=.spago'",
     "start": "spago -x example.dhall build -u '--strict --stash --censor-lib --is-lib=.spago' && parcel ./example/index.html",
-    "bump-version": "LC_ALL=C.UTF-8 spago bump-version --no-dry-run",
     "pulp:publish": "pulp publish",
     "pulp:login": "pulp login"
   },
