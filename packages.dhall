@@ -119,16 +119,13 @@ let additions =
 
 
 let upstream =
-      https://github.com/purescript/package-sets/releases/download/psc-0.13.8-20200615/packages.dhall sha256:5d0cfad9408c84db0a3fdcea2d708f9ed8f64297e164dc57a7cf6328706df93a
+      https://github.com/purescript/package-sets/releases/download/psc-0.13.8/packages.dhall sha256:0e95ec11604dc8afc1b129c4d405dcc17290ce56d7d0665a0ff15617e32bbf03
 
-let overrides = {=}
-
-let additions =
-  { grain =
-      { dependencies = [ "foreign-object", "safely", "unsafe-reference", "web-html" ]
-      , repo = "https://github.com/purescript-grain/purescript-grain.git"
-      , version = "v0.3.0"
+let overrides =
+      { grain =
+          upstream.grain //  { dependencies = [ "unsafe-reference", "web-html" ], version = "v0.4.0" }
       }
-  }
+
+let additions = {=}
 
 in  upstream // overrides // additions

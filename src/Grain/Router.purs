@@ -35,11 +35,11 @@ useRouter
   => GProxy a
   -> Render (Effect Unit)
 useRouter proxy = do
-  updateRoute <- useUpdater proxy
+  update <- useUpdater
   pure do
     listener <- eventListener $ const do
       route <- parse <$> currentPath
-      updateRoute $ const route
+      update proxy $ const route
     window <#> toEventTarget >>= addEventListener popstate listener false
 
 initialRouter :: forall a. Router a => Effect a
