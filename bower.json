@@ -14,7 +14,7 @@
         "output"
     ],
     "dependencies": {
-        "purescript-grain": "https://github.com/purescript-grain/purescript-grain.git#v0.9.0",
+        "purescript-grain": "https://github.com/purescript-grain/purescript-grain.git#v1.0.0",
         "purescript-profunctor": "^4.1.0"
     }
 }
