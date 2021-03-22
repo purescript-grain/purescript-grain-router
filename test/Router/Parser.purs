@@ -4,8 +4,8 @@ import Prelude
 
 import Control.Alt ((<|>))
 import Data.Generic.Rep (class Generic)
-import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (fromMaybe)
+import Data.Show.Generic (genericShow)
 import Grain.Router.Parser (end, int, lit, match, param)
 import Test.Unit (TestSuite, test)
 import Test.Unit.Assert as Assert

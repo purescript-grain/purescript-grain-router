@@ -19,14 +19,14 @@ import Control.MonadPlus (guard)
 import Control.Plus (class Plus)
 import Data.Array as A
 import Data.Foldable (foldr)
-import Data.Int (fromString)
+import Data.Int as I
 import Data.List (List(..), catMaybes, drop, fromFoldable)
 import Data.Map as M
 import Data.Maybe (Maybe(..), maybe)
+import Data.Number as N
 import Data.Profunctor (lcmap)
 import Data.String as S
 import Data.Tuple (Tuple(..), fst, snd)
-import Global (isNaN, readFloat)
 
 data Part = Path String | Query (M.Map String String)
 
@@ -74,18 +74,13 @@ lit part = Parser $ \r ->
 num :: Parser Number
 num = Parser $ \r ->
   case r of
-    Cons (Path p) ps ->
-      let res = readFloat p in
-      if isNaN res then
-        Nothing
-      else
-        Just $ Tuple ps res
+    Cons (Path p) ps -> maybe Nothing (Just <<< Tuple ps) $ N.fromString p
     _ -> Nothing
 
 int :: Parser Int
 int = Parser $ \r ->
   case r of
-    Cons (Path p) ps -> maybe Nothing (Just <<< Tuple ps) $ fromString p
+    Cons (Path p) ps -> maybe Nothing (Just <<< Tuple ps) $ I.fromString p
     _ -> Nothing
 
 bool :: Parser Boolean
