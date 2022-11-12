@@ -53,7 +53,7 @@ instance parserApply :: Apply Parser where
         Just (Tuple r3 b) -> Just $ Tuple r3 (f b)
 
 instance parserPlus :: Plus Parser where
-  empty = Parser \r -> Nothing
+  empty = Parser \_ -> Nothing
 
 instance parserApplicative :: Applicative Parser where
   pure a = Parser \r -> pure $ Tuple r a
@@ -61,7 +61,7 @@ instance parserApplicative :: Applicative Parser where
 end :: Parser Unit
 end = Parser $ \r ->
   case r of
-    Cons (Query m) Nil -> Just $ Tuple Nil unit
+    Cons (Query _) Nil -> Just $ Tuple Nil unit
     Nil -> Just $ Tuple Nil unit
     _ -> Nothing
 
@@ -114,7 +114,7 @@ params = Parser $ \r ->
 any :: Parser Unit
 any = Parser $ \r ->
   case r of
-    Cons p ps -> Just $ Tuple ps unit
+    Cons _ ps -> Just $ Tuple ps unit
     _ -> Nothing
 
 routeFromUrl :: String -> Route

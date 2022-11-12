@@ -14,7 +14,22 @@
         "output"
     ],
     "dependencies": {
-        "purescript-grain": "https://github.com/purescript-grain/purescript-grain.git#v2.0.0",
-        "purescript-profunctor": "^5.0.0"
+        "purescript-arrays": "^v7.1.0",
+        "purescript-control": "^v6.0.0",
+        "purescript-effect": "^v4.0.0",
+        "purescript-foldable-traversable": "^v6.0.0",
+        "purescript-foreign": "^v7.0.0",
+        "purescript-grain": "https://github.com/purescript-grain/purescript-grain.git#v3.0.0",
+        "purescript-integers": "^v6.0.0",
+        "purescript-lists": "^v7.0.0",
+        "purescript-maybe": "^v6.0.0",
+        "purescript-numbers": "^v9.0.0",
+        "purescript-ordered-collections": "^v3.0.0",
+        "purescript-prelude": "^v6.0.1",
+        "purescript-profunctor": "^v6.0.0",
+        "purescript-strings": "^v6.0.1",
+        "purescript-tuples": "^v7.0.0",
+        "purescript-web-events": "^v4.0.0",
+        "purescript-web-html": "^v4.1.0"
     }
 }
